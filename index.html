@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="buttondown.css" type="text/css" />
+</head>
+<body>
+<h4 id="assignment-3">Assignment 3</h4>
+<p>Anneke Funk, 601229 Jonathan Koets, 442332 Charlotte Nijland, 298275</p>
+<h1 id="effect-of-money-supply-changes-on-interest-rates">Effect of money supply changes on interest rates</h1>
+<h2 id="research-question">Research question</h2>
+<p>What will be the change in the ECB interest rate if the ECB increases the Quantitative Easing from 60 to 80 billion euros per month?</p>
+<h2 id="motivation">Motivation</h2>
+<p>In March 2016 the ECB announced an increase in Quantitative Easing from 60 to 80 billion euros a month <a href="http://fd.nl/beurs/1142916/ecb-zet-kraan-verder-open">Ten Bosch, 2016</a>. This policy change will start as of April 1st 2016. The ECB decided to take this step after negative reports on predicted economic growth and inflation. We would like to investigate to what extent these changes have an effect on the interest rate in Europe.</p>
+<h2 id="method">Method</h2>
+<p>We make use of an example that can be found on <a href="http://faculty.econ.ucdavis.edu/faculty/lmakowski/136_site/handouts/is_lm_review.pdf">this website</a>. We use a money demand and money supply <a href="#Define%20the%20equations%20and%20ranges%20of%20the%20interest%20rate%20and%20the%20quantity%20of%20money">function</a> in which i is equal to the <a href="http://www.euribor-rates.eu/ecb-refinancing-rate.asp">ECB rates</a> and Y is calculated according the the given values of MS or MD and i. If QE is 60 than r will be <span class="math inline">0.05</span>% from there on we will calculate the interest rate in case of a QE policy of 80 billion euro. The model we use cannot have negative interest rates.</p>
+<h2 id="answer">Answer</h2>
+<p>In our <a href="#Conclusion">conclusion</a> you we can see that for a money supply of 80 we will have an interest rate of <span class="math inline">0.03</span>%. So first it was <span class="math inline">0.05</span>% and now it will become <span class="math inline">0.03</span>%. This is a change of <span class="math inline">−40</span>%. However our interest rate does not correspond with the interest rate of the website we use.</p>
+<h2 id="main-assumptions">Main Assumptions</h2>
+<p>The main assumption underlying our research is that a change in the ECB rates comes mainly from changes in the money supply creates by the ECB.</p>
+<h2 id="data">Data</h2>
+<p>The data we use is from a money demand equation given by a macro course which can be found on <a href="http://faculty.econ.ucdavis.edu/faculty/lmakowski/136_site/handouts/is_lm_review.pdf">this website</a>. Besides, we use the ECB rates of 4-9-2014 and 10-3 2016 for a quantitative easing program of 60 and 80 billion euros.</p>
+<h2 id="importing-libraries-and-data">Importing libraries and data</h2>
+<p>we use the following python packages to run the model.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt 
+<span class="im">from</span> scipy <span class="im">import</span> arange
+<span class="op">%</span>matplotlib inline</code></pre></div>
+<p><a id='Define the equations and ranges of the interest rate and the quantity of money'></a> ### Define the equations and ranges of the interest rate and the quantity of money</p>
+<p>To determine the equation we used the equation of the money demand function of <a href="http://faculty.econ.ucdavis.edu/faculty/lmakowski/136_site/handouts/is_lm_review.pdf">this webstite</a></p>
+<p>Money demand= |<span class="math inline">5<em>Y</em> − 1000 × <em>i</em></span></p>
+<p>fill in the variables.</p>
+<p>|<span class="math inline">60 = 5<em>Y</em> − 1000 × 0.05</span></p>
+<p>So Y will be 22. We will use this Y 22 as a constant variable to be able to show the changes in i if the quantity of money changes.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> interestrate(x):
+    <span class="cf">return</span> (<span class="dv">110</span><span class="op">-</span>x)<span class="op">/</span><span class="dv">1000</span>
+interestrate(<span class="dv">60</span>)</code></pre></div>
+<pre><code>0</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">range_x<span class="op">=</span> arange(<span class="fl">0.0</span>,<span class="fl">110.0</span>,<span class="fl">10.0</span>)
+<span class="bu">print</span> range_x
+
+range_y<span class="op">=</span>[interestrate(x) <span class="cf">for</span> x <span class="op">in</span> range_x]
+<span class="bu">print</span> range_y</code></pre></div>
+<pre><code>[   0.   10.   20.   30.   40.   50.   60.   70.   80.   90.  100.]
+[0.11, 0.10000000000000001, 0.089999999999999997, 0.080000000000000002, 0.070000000000000007, 0.059999999999999998, 0.050000000000000003, 0.040000000000000001, 0.029999999999999999, 0.02, 0.01]</code></pre>
+<p><a id='Formula for interest rate changes'></a> ## Formula for interest rate changes In the table we can already see what will happen if the money supply changes from 60 to 80. If the money supply is 80 we will have an interest rate of <span class="math inline">0.03</span>.</p>
+<p>To calculate the percentage change we can use the following equation. <span class="math inline">$\frac{New-Old}{Old} × 100$</span>%</p>
+<p>Before we calculate the change in the interest rate we will first check what will happen if we graph the equations.</p>
+<h2 id="graph">Graph</h2>
+<p>To be able to see the change in the interest rate we need three equations. The first is to determine the interest rate slope dependent on the money demand. The second and third show the money supply curves and the corresponding interest rates.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">
+<span class="co"># in the following section the graph is formulated, e.g. the color of the lines, the money supply curves, etc.</span>
+plt.clf()
+plt.plot(range_x, range_y, <span class="st">&#39;-&#39;</span>, color<span class="op">=</span> <span class="st">&#39;b&#39;</span>, linewidth<span class="op">=</span><span class="dv">3</span>)
+plt.plot((<span class="dv">60</span>,<span class="dv">60</span>), (<span class="op">-</span><span class="fl">0.2</span>,<span class="fl">0.2</span>), <span class="st">&#39;r-&#39;</span>, linewidth<span class="op">=</span><span class="dv">3</span>)
+plt.plot((<span class="dv">80</span>,<span class="dv">80</span>), (<span class="op">-</span><span class="fl">0.2</span>,<span class="fl">0.2</span>), <span class="st">&#39;g-&#39;</span>, linewidth<span class="op">=</span><span class="dv">3</span>)
+plt.plot((<span class="dv">0</span>,<span class="dv">60</span>), (<span class="fl">0.05</span>,<span class="fl">0.05</span>), <span class="st">&#39;r--&#39;</span>)
+plt.plot((<span class="dv">0</span>,<span class="dv">80</span>), (<span class="fl">0.03</span>,<span class="fl">0.03</span>), <span class="st">&#39;g--&#39;</span>)
+plt.xlabel(<span class="st">&quot;Quantitiy of Money&quot;</span>,fontsize <span class="op">=</span> <span class="dv">13</span>)
+plt.ylabel(<span class="st">&quot;Interest Rate&quot;</span>,fontsize <span class="op">=</span> <span class="dv">13</span>)
+plt.xlim(<span class="dv">0</span>,<span class="dv">100</span>)
+plt.ylim(<span class="fl">0.0</span>,<span class="fl">0.2</span>)
+
+plt.annotate(<span class="st">&#39;i$=(110-x)/1000$&#39;</span>, xy<span class="op">=</span>(<span class="dv">5</span>,interestrate(<span class="fl">0.18</span>)),  xycoords<span class="op">=</span><span class="st">&#39;data&#39;</span>,
+              xytext<span class="op">=</span>(<span class="fl">10.0</span>, <span class="dv">70</span>), textcoords<span class="op">=</span><span class="st">&#39;offset points&#39;</span>, size <span class="op">=</span> <span class="dv">12</span>,
+              arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">&quot;-&gt;&quot;</span>, linewidth <span class="op">=</span> <span class="dv">1</span>,
+                              connectionstyle<span class="op">=</span><span class="st">&quot;arc3,rad=.2&quot;</span>),
+              )
+plt.annotate(<span class="st">&#39;MS1$=60$&#39;</span>, xy<span class="op">=</span>(<span class="dv">60</span>,interestrate(<span class="fl">0.13</span>)),  xycoords<span class="op">=</span><span class="st">&#39;data&#39;</span>,
+              xytext<span class="op">=</span>(<span class="op">-</span><span class="dv">60</span>, <span class="dv">50</span>), textcoords<span class="op">=</span><span class="st">&#39;offset points&#39;</span>, size <span class="op">=</span> <span class="dv">12</span>,
+              arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">&quot;-&gt;&quot;</span>, linewidth <span class="op">=</span> <span class="dv">1</span>,
+                              connectionstyle<span class="op">=</span><span class="st">&quot;arc3,rad=.3&quot;</span>),
+              )
+plt.annotate(<span class="st">&#39;MS2$=80$&#39;</span>, xy<span class="op">=</span>(<span class="dv">80</span>,interestrate(<span class="fl">0.11</span>)),  xycoords<span class="op">=</span><span class="st">&#39;data&#39;</span>,
+              xytext<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">50</span>), textcoords<span class="op">=</span><span class="st">&#39;offset points&#39;</span>, size <span class="op">=</span> <span class="dv">12</span>,
+              arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">&quot;-&gt;&quot;</span>, linewidth <span class="op">=</span> <span class="dv">1</span>,
+                              connectionstyle<span class="op">=</span><span class="st">&quot;arc3,rad=-.3&quot;</span>),
+              )
+
+plt.show()</code></pre></div>
+<div class="figure">
+<img src="output_16_0.png" alt="png" />
+<p class="caption">png</p>
+</div>
+<p>The graph shows the interest rates and the Quantity of Money, so it shows the impact on the interest rate if the ECB changes its policy.</p>
+<p><a id='Interest rate changes'></a> ## Interest rate changes The graph shows the expected outcomes as was already shown in <a href="#Define%20the%20equations%20and%20ranges%20of%20the%20interest%20rate%20and%20the%20quantity%20of%20money">the ranges</a>. For a money supply of 60 the interest rate will be <span class="math inline">0.05</span>% and for a money supply of 80 this will be <span class="math inline">0.03</span>%.</p>
+<p>The interest rate change can be calculated with the <a href="#Formula%20for%20interest%20rate%20changes">formula</a> explained above.</p>
+<p>So for the interest rate change we get:</p>
+<p><span class="math inline">$\frac{0.03-0.05}{0.05} × 100= -40$</span>%</p>
+<p><a id='Conclusion'></a> ## Conclusion</p>
+<p>As we have calculated in the <a href="#Interest%20rate%20changes">previous section</a> we saw that there will be a decrease of 40% if the ECB increases the money supply to 80 billion euros.</p>
+<p>If we compare our interest rate with the <a href="http://faculty.econ.ucdavis.edu/faculty/lmakowski/136_site/handouts/is_lm_review.pdf">current</a> interest rate if the ECB has a QE of 80 billion euros per month We see that the answers do not correspond with eachother.</p>
+<p>The current interest rate is 0,000% according to the source we used. The difference between the to can be due to the fact that we use a simplistic model and the interest rates of the website we use are fixed for a longer time.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</body>
+</html>
